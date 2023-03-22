@@ -1,3 +1,15 @@
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$db = "bec_fest";
+// Create connection
+$conn = mysqli_connect($servername, $username, $password,$db);
+// Check connection
+if (!$conn) {
+   die("Connection failed: " . mysqli_connect_error());
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -296,123 +308,27 @@
 	            <div class="tab-content" id="v-pills-tabContent">
 
 	              <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel" aria-labelledby="day-1-tab">
-	              	<div class="speaker-wrap ftco-animate d-flex">
-	              		<div class="img speaker-img" style="background-image: url(images/baskara.jpg);"></div>
+	             <?php
+				 $sql="select * from admin_user";
+				 $result=mysqli_query($conn, $sql);
+				 while($row = mysqli_fetch_array($result)){
+				 
+					?> 
+					
+					
+				  <div class="speaker-wrap ftco-animate d-flex">
+	              		<div class="img speaker-img" style="background-image: url(<?php echo $row['image'];?>"></div>
 	              		<div class="text pl-md-5">
-	              			<span class="time">08:00 AM - 10:00 AM</span>
-	              			<h2><a href="#">CODING WARS</a></h2>
-	              			<p>Coding Wars is beign coonducted by IT Department focus on the problem solving skills among the students</p>
-	              			<h3 class="speaker-name">&mdash; <a href="http://www.becbapatla.ac.in/uploads/BCE1605087666921.pdf">Sri K.Bhaskara Rao</a> <span class="position">Assistant Professsor Of IT Department</span></h3>
+	              			<span class="time"><?php echo $row['title'];?></span>
+	              			<h2><a href="#"><?php echo $row['time'];?></a></h2>
+	              			<p><?php echo $row['description'];?></a></p>
+	              			<h3 class="speaker-name">&mdash; <a href="http://www.becbapatla.ac.in/uploads/BCE1605087666921.pdf"><?php echo $row['faculty_name'];?></a></a> <span class="position"><?php echo $row['faculty_dept'];?></span></h3>
 	              		</div>
 	              	</div>
-	              	<div class="speaker-wrap ftco-animate d-flex">
-	              		<div class="img speaker-img" style="background-image: url(images/nsr.jpg);"></div>
-	              		<div class="text pl-md-5">
-	              			<span class="time">08: - 10:00</span>
-	              			<h2><a href="#">Best Practices For Programming WordPress</a></h2>
-	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-	              			<h3 class="speaker-name">&mdash; <a href="http://www.becbapatla.ac.in/uploads/BCE1667634067283.pdf">Sri N.Srinivasa Rao</a> <span class="position">Assistant Professor of IT Department</span></h3>
-	              		</div>
-	              	</div>
-	              	<div class="speaker-wrap ftco-animate d-flex">
-	              		<div class="img speaker-img" style="background-image: url(images/krishnarao.jpg);"></div>
-	              		<div class="text pl-md-5">
-	              			<span class="time">08: - 10:00</span>
-	              			<h2><a href="#">Web Performance For Third Party Scripts</a></h2>
-	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-	              			<h3 class="speaker-name">&mdash; <a href="http://www.becbapatla.ac.in/uploads/BCE1667633873982.pdf">Sri P.A.V.Krishna Rao</a> <span class="position">Assistant Professor of IT Department</span></h3>
-	              		</div>
-	              	</div>
-	              </div>
-
-	              <div class="tab-pane fade" id="v-pills-2" role="tabpanel" aria-labelledby="v-pills-day-2-tab">
-	              	<div class="speaker-wrap ftco-animate d-flex">
-	              		<div class="img speaker-img" style="background-image: url(images/ksr.jpeg);"></div>
-	              		<div class="text pl-md-5">
-	              			<span class="time">08: - 10:00</span>
-	              			<h2><a href="#">Introduction to Wordpress 5.0</a></h2>
-	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-	              			<h3 class="speaker-name">&mdash; <a href="http://www.becbapatla.ac.in/uploads/BCE1667892427310.pdf">Dr K.Srinivasa Rao</a> <span class="position">Assistant Professor of IT Department</span></h3>
-	              		</div>
-	              	</div>
-	              	<div class="speaker-wrap ftco-animate d-flex">
-	              		<div class="img speaker-img" style="background-image: url(images/praveen.jpg);"></div>
-	              		<div class="text pl-md-5">
-	              			<span class="time">08: - 10:00</span>
-	              			<h2><a href="#">Best Practices For Programming WordPress</a></h2>
-	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-	              			<h3 class="speaker-name">&mdash; <a href="http://www.becbapatla.ac.in/uploads/BCE1667874150224.pdf">Sri M.Praveen Kumar</a> <span class="position">Assistant Professor of IT Department</span></h3>
-	              		</div>
-	              	</div>
-	              	<div class="speaker-wrap ftco-animate d-flex">
-	              		<div class="img speaker-img" style="background-image: url(images/mangamma.jpg);"></div>
-	              		<div class="text pl-md-5">
-	              			<span class="time">08: - 10:00</span>
-	              			<h2><a href="#">Web Performance For Third Party Scripts</a></h2>
-	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-	              			<h3 class="speaker-name">&mdash; <a href="http://www.becbapatla.ac.in/uploads/BCE1669098450533.pdf">Smt. CH.Mangamma</a> <span class="position">Assistant Professor of CSE Department</span></h3>
-	              		</div>
-	              	</div>
-	              </div>
-	              <div class="tab-pane fade" id="v-pills-3" role="tabpanel" aria-labelledby="v-pills-day-3-tab">
-	              	<div class="speaker-wrap ftco-animate d-flex">
-	              		<div class="img speaker-img" style="background-image: url(images/ratna.jpg);"></div>
-	              		<div class="text pl-md-5">
-	              			<span class="time">08: - 10:00</span>
-	              			<h2><a href="#">Introduction to Wordpress 5.0</a></h2>
-	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-	              			<h3 class="speaker-name">&mdash; <a href="#">Sri P.Ratna Prakash</a> <span class="position">Assistant Professor of IT Department</span></h3>
-	              		</div>
-	              	</div>
-	              	<div class="speaker-wrap ftco-animate d-flex">
-	              		<div class="img speaker-img" style="background-image: url(images/sudhakar.jfif);"></div>
-	              		<div class="text pl-md-5">
-	              			<span class="time">08: - 10:00</span>
-	              			<h2><a href="#">Best Practices For Programming WordPress</a></h2>
-	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-	              			<h3 class="speaker-name">&mdash; <a href="http://www.becbapatla.ac.in/uploads/BCE1669098307920.pdf">Dr.Nagalla Sudhakar</a> <span class="position">Professor of CSE Department</span></h3>
-	              		</div>
-	              	</div>
-	              	<div class="speaker-wrap ftco-animate d-flex">
-	              		<div class="img speaker-img" style="background-image: url(images/swetha.jpg);"></div>
-	              		<div class="text pl-md-5">
-	              			<span class="time">08: - 10:00</span>
-	              			<h2><a href="#">Web Performance For Third Party Scripts</a></h2>
-	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-	              			<h3 class="speaker-name">&mdash; <a href="http://www.becbapatla.ac.in/uploads/BCE1667800992247.pdf">Smt. D.Swetha</a> <span class="position">Assistant Professor of ECE Department</span></h3>
-	              		</div>
-	              	</div>
-	              </div>
-	              <div class="tab-pane fade" id="v-pills-4" role="tabpanel" aria-labelledby="v-pills-day-4-tab">
-	              	<div class="speaker-wrap ftco-animate d-flex">
-	              		<div class="img speaker-img" style="background-image: url(images/surendra.jpg);"></div>
-	              		<div class="text pl-md-5">
-	              			<span class="time">08: - 10:00</span>
-	              			<h2><a href="#">Introduction to Wordpress 5.0</a></h2>
-	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-	              			<h3 class="speaker-name">&mdash; <a href="http://www.becbapatla.ac.in/uploads/BCE1667800418052.pdf">Dr.P.Surendra Kumar</a> <span class="position">Assistant Professor of ECE Department</span></h3>
-	              		</div>
-	              	</div>
-	              	<div class="speaker-wrap ftco-animate d-flex">
-	              		<div class="img speaker-img" style="background-image: url(images/vidya.jpg);"></div>
-	              		<div class="text pl-md-5">
-	              			<span class="time">08: - 10:00</span>
-	              			<h2><a href="#">Best Practices For Programming WordPress</a></h2>
-	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-	              			<h3 class="speaker-name">&mdash; <a href="#">Mrs.Y.Vidya Indrasena</a> <span class="position">Assistan Professor of Civil Department</span></h3>
-	              		</div>
-	              	</div>
-	              	<div class="speaker-wrap ftco-animate d-flex">
-	              		<div class="img speaker-img" style="background-image: url(images/santhi.jpg);"></div>
-	              		<div class="text pl-md-5">
-	              			<span class="time">08: - 10:00</span>
-	              			<h2><a href="#">Web Performance For Third Party Scripts</a></h2>
-	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-	              			<h3 class="speaker-name">&mdash; <a href="http://www.becbapatla.ac.in/uploads/BCE1667896082332.pdf">Sri.T.Santhi Sagar</a> <span class="position">Assistant Professor of Civil Department</span></h3>
-	              		</div>
-	              	</div>
-	              </div>
-	            </div>
+	        </div>
+			<?php
+				 }
+			?>
 	          </div>
 	        </div>
         </div>
