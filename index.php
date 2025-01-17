@@ -54,7 +54,7 @@ if (!$conn) {
 	          <li class="nav-item"><a href="Guests.html" class="nav-link">Guests</a></li>
 	          <li class="nav-item"><a href="schedule.html" class="nav-link">Schedule</a></li>
 	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact me</a></li>
 	          <li class="nav-item cta mr-md-2"><a href="http://localhost/becfest/Register.php" class="nav-link">Register</a></li>
 
 	        </ul>
